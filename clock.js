@@ -10,11 +10,14 @@ function getTime() {
   const hours = date.getHours();
   const seconds = date.getSeconds();
 
-  clockTitle.innerText = `${hours}:${minutes}:${seconds}`;
+  clockTitle.innerText = `${hours < 10 ? `0${hours}` : hours}:${
+    minutes < 10 ? `0${minutes}` : minutes
+  }:${seconds < 10 ? `0${seconds}` : seconds}`;
 }
 // 1. 초기화
 function init() {
   getTime();
+  setInterval(getTime, 1000);
 }
 
 init();
